@@ -1,0 +1,18 @@
+{
+  "name": "core-identity-service",
+  "version": "1.0.0",
+  "description": "Core Identity & Routing Microservice",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "identity",
+    "auth",
+    "microservice"
+  ],
+  "author": "",
+  "license": "ISC"
+}
