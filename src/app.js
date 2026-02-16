@@ -2,9 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
+const supabase = require('./config/supabaseClient');
+console.log("🔌 Supabase Client Initialized:", !!supabase); // Should print 'true'
+
 // 1. IMPORT MIDDLEWARES
 const logger = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler'); // Move this to the top with imports
+
 
 // 2. IMPORT ROUTES
 const healthRoutes = require('./routes/healthRoutes');
@@ -20,6 +24,10 @@ app.use('/api/v1/users', userRoutes);
 
 // 5. THE SAFETY NET (Must be AFTER routes)
 app.use(errorHandler); 
+
+if (supabase) {
+  console.log("Supabase client initialized successfully");
+}
 
 // 6. SERVER INITIALIZATION
 const PORT = process.env.PORT || 3000;
